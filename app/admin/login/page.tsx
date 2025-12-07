@@ -1,3 +1,4 @@
+// app/admin/login/page.tsx
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -17,7 +18,6 @@ export default function LoginPage() {
           </p>
         )}
 
-        {/* POST goes to the route handler below */}
         <form method="POST" action="/admin/login-action" className="space-y-4">
           <div className="flex flex-col gap-1">
             <label htmlFor="username" className="text-sm text-slate-300">

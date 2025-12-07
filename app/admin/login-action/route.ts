@@ -1,7 +1,10 @@
+// app/admin/login-action/route.ts
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
+
   const username = formData.get("username")?.toString() ?? "";
   const password = formData.get("password")?.toString() ?? "";
 
@@ -10,13 +13,14 @@ export async function POST(req: NextRequest) {
   const tokenSecret = process.env.ADMIN_TOKEN_SECRET;
 
   if (!validUsername || !validPassword || !tokenSecret) {
-    console.error("Missing admin env vars");
-    return NextResponse.redirect(
-      new URL("/admin/login?error=1", req.url)
+    // So you see quickly if env vars are missing
+    return NextResponse.json(
+      { error: "Admin env vars not set" },
+      { status: 500 }
     );
   }
 
-  // correct credentials - set cookie and go back to home page
+  // Correct credentials: set cookie and go back to home page
   if (username === validUsername && password === validPassword) {
     const res = NextResponse.redirect(new URL("/", req.url));
 
@@ -31,6 +35,7 @@ export async function POST(req: NextRequest) {
     return res;
   }
 
+  // Wrong credentials: redirect back with ?error=1
   return NextResponse.redirect(
     new URL("/admin/login?error=1", req.url)
   );

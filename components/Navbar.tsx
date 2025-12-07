@@ -1,3 +1,4 @@
+// components/Navbar.tsx
 import Link from "next/link";
 import { cookies } from "next/headers";
 
@@ -14,7 +15,7 @@ export default async function Navbar() {
           Cunningham<span className="text-blue-600">.dev</span>
         </Link>
 
-        <div className="flex items-center gap-4 text-sm font-medium">
+        <div className="flex gap-4 text-sm font-medium">
           <Link href="#about" className="hover:text-blue-600">
             About Me
           </Link>
@@ -33,6 +34,7 @@ export default async function Navbar() {
               >
                 Dashboard
               </Link>
+
               <form method="POST" action="/admin/logout">
                 <button
                   type="submit"
