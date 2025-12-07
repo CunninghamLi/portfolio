@@ -1,4 +1,3 @@
-// components/HeroSection.tsx
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-black px-6 py-10">
@@ -7,12 +6,12 @@ export default function HeroSection() {
 
       <div className="relative space-y-4">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-sky-400">
-          Full-stack developer in training
+          Full-stack developer and Student
         </p>
 
         <h1 className="text-3xl md:text-4xl font-semibold leading-tight">
-          Building clean, practical{" "}
-          <span className="text-sky-400">full-stack apps</span>.
+          Hi my name is{" "}
+          <span className="text-sky-400">Cunningham Li</span>.
         </h1>
 
         <p className="max-w-xl text-sm text-slate-300">

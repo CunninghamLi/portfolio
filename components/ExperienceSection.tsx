@@ -1,4 +1,3 @@
-// components/ExperienceSection.tsx
 type ExperienceItem = {
   title: string;
   org: string;
@@ -9,36 +8,35 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Computer Science Technology student",
+    title: "Computer Science Tutor",
     org: "Champlain College Saint-Lambert",
-    period: "2022 - 2026",
-    description:
-      "DEC",
-    tech: ["Java", "JavaScript", "TypeScript", "SQL", "Spring Boot", "React", "Angular"],
+    period: "September 2025 - December 2025",
+    description: "Supported about 20 second year students each week with SQL topics including joins, filtering and relational design and held weekly tutoring sessions to guide students through labs and assignments and help clarify difficult concepts", 
+    tech: [
+      "SQL",
+    ],
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section
-      id="experience"
-      className="scroll-mt-24 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
-    >
-      <h2 className="text-lg font-semibold tracking-tight mb-4">
+    <section id="experience" className="space-y-4 scroll-mt-24">
+      <h2 className="text-2xl font-semibold tracking-tight">
         Experience
       </h2>
 
-      <ol className="relative border-l border-slate-700 pl-5 space-y-6">
-        {experiences.map((item, idx) => (
-          <li key={idx} className="relative">
-
-            <div>
+      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+        <ol className="relative border-l border-slate-700 pl-5 space-y-6">
+          {experiences.map((item, idx) => (
+            <li key={idx} className="relative">
               <h3 className="text-sm font-semibold">
                 {item.title}
               </h3>
+
               <p className="text-xs text-slate-400">
                 {item.org} • {item.period}
               </p>
+
               <p className="mt-2 text-xs text-slate-300">
                 {item.description}
               </p>
@@ -53,10 +51,10 @@ export default function ExperienceSection() {
                   </span>
                 ))}
               </div>
-            </div>
-          </li>
-        ))}
-      </ol>
+            </li>
+          ))}
+        </ol>
+      </div>
     </section>
   );
 }

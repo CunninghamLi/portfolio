@@ -1,4 +1,3 @@
-// components/ProjectsSection.tsx
 import { projects } from "@/lib/projects";
 import ProjectCard from "./ProjectCard";
 
@@ -8,7 +7,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="mx-auto max-w-5xl px-4 py-16 scroll-mt-20"
+      className="space-y-4"
     >
       <div className="flex items-baseline justify-between mb-6">
         <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
