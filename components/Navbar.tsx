@@ -18,12 +18,14 @@ export default async function Navbar() {
         </Link>
 
         <div className="flex items-center gap-4">
-          <Link href="#experience" className={linkClass}>
-            Experience
-          </Link>
           <Link href="#projects" className={linkClass}>
             Projects
           </Link>
+          <Link href="#experience" className={linkClass}>
+            Experience
+          </Link>
+          <Link href="#skills" className={linkClass}>Skills</Link>
+          <Link href="#education" className={linkClass}>Education</Link>
 
           {isAuthed ? (
             <>
