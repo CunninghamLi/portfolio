@@ -17,7 +17,7 @@ export default function LoginPage() {
           </p>
         )}
 
-        {/* This form still posts to the server */}
+        {/* POST goes to the route handler below */}
         <form method="POST" action="/admin/login-action" className="space-y-4">
           <div className="flex flex-col gap-1">
             <label htmlFor="username" className="text-sm text-slate-300">
