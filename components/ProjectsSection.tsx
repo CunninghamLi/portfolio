@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { projects } from "@/lib/projects";
 import ProjectCard from "./ProjectCard";
 

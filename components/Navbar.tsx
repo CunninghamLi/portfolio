@@ -6,7 +6,7 @@ export default async function Navbar() {
   const cookieStore = await cookies();
   const token = cookieStore.get("admin_auth")?.value;
   const expected = process.env.ADMIN_TOKEN_SECRET;
-  const isAuthed = !!token && !!expected && token === expected;
+  const isAuthed = Boolean(token && expected && token === expected);
 
   return (
     <header className="border-b bg-white/70 backdrop-blur">
@@ -15,7 +15,7 @@ export default async function Navbar() {
           Cunningham<span className="text-blue-600">.dev</span>
         </Link>
 
-        <div className="flex gap-4 text-sm font-medium">
+        <div className="flex items-center gap-4 text-sm font-medium">
           <Link href="#about" className="hover:text-blue-600">
             About Me
           </Link>
@@ -34,11 +34,10 @@ export default async function Navbar() {
               >
                 Dashboard
               </Link>
-
-              <form method="POST" action="/admin/logout">
+              <form action="/admin/logout" method="POST">
                 <button
                   type="submit"
-                  className="text-xs text-gray-500 hover:text-red-500"
+                  className="text-xs text-gray-500 hover:text-blue-600"
                 >
                   Logout
                 </button>

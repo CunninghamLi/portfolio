@@ -1,11 +1,48 @@
 // app/admin/login/page.tsx
-"use client";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-import { useSearchParams } from "next/navigation";
+type LoginPageProps = {
+  searchParams?: {
+    error?: string;
+  };
+};
 
-export default function LoginPage() {
-  const searchParams = useSearchParams();
-  const hasError = searchParams.get("error") === "1";
+export default function LoginPage({ searchParams }: LoginPageProps) {
+  const hasError = searchParams?.error === "1";
+
+  async function login(formData: FormData) {
+    "use server";
+
+    const username = String(formData.get("username") ?? "");
+    const password = String(formData.get("password") ?? "");
+
+    const validUsername = process.env.ADMIN_USERNAME;
+    const validPassword = process.env.ADMIN_PASSWORD;
+    const tokenSecret = process.env.ADMIN_TOKEN_SECRET;
+
+    if (!validUsername || !validPassword || !tokenSecret) {
+      throw new Error("Admin env vars (ADMIN_USERNAME, ADMIN_PASSWORD, ADMIN_TOKEN_SECRET) are not set");
+    }
+
+    if (username === validUsername && password === validPassword) {
+      const cookieStore = await cookies();
+
+      cookieStore.set("admin_auth", tokenSecret, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60 * 24 * 7, // 7 days
+      });
+
+      // go back to main page, navbar will now show Dashboard + Logout
+      redirect("/");
+    }
+
+    // wrong credentials -> reload this page with error flag
+    redirect("/admin/login?error=1");
+  }
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-slate-950 text-slate-100">
@@ -18,7 +55,7 @@ export default function LoginPage() {
           </p>
         )}
 
-        <form method="POST" action="/admin/login-action" className="space-y-4">
+        <form action={login} className="space-y-4">
           <div className="flex flex-col gap-1">
             <label htmlFor="username" className="text-sm text-slate-300">
               Username
