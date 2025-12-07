@@ -1,31 +1,20 @@
+// components/ExperienceSection.tsx
 type ExperienceItem = {
-  period: string;
   title: string;
-  place: string;
+  org: string;
+  period: string;
   description: string;
+  tech: string[];
 };
 
-const experience: ExperienceItem[] = [
+const experiences: ExperienceItem[] = [
   {
-    period: "2023 – PRESENT",
-    title: "Computer Science Technology Student",
-    place: "Champlain College Saint-Lambert",
+    title: "Computer Science Technology student",
+    org: "Champlain College Saint-Lambert",
+    period: "2023 - 2026 (expected)",
     description:
-      "Coursework and projects in full-stack web development, databases, mobile apps, and cloud.",
-  },
-  {
-    period: "ONGOING",
-    title: "Full-Stack Project Work",
-    place: "VladTech, PathFinder AI, others",
-    description:
-      "Built multi-page web apps with authentication, REST APIs, and modern frontend stacks.",
-  },
-  {
-    period: "ONGOING",
-    title: "Personal Learning",
-    place: "",
-    description:
-      "Studying design patterns, deployment, and deeper backend concepts to become a stronger full-stack dev.",
+      "Coursework and projects in full stack development, databases, cloud, and mobile.",
+    tech: ["Java", "Spring Boot", "C#", "ASP.NET Core", "SQL Server"],
   },
 ];
 
@@ -33,35 +22,41 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="mx-auto max-w-5xl px-4 py-16 scroll-mt-20"
+      className="scroll-mt-24 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
     >
-      <h2 className="mb-6 text-2xl font-semibold tracking-tight">
+      <h2 className="text-lg font-semibold tracking-tight mb-4">
         Experience
       </h2>
 
-      <div className="relative border-l border-slate-700/70 pl-6">
-        {experience.map((item, index) => (
-          <article
-            key={item.title}
-            className={`relative pb-10 ${index === experience.length - 1 ? "pb-0" : ""}`}
-          >
-            
+      <ol className="relative border-l border-slate-700 pl-5 space-y-6">
+        {experiences.map((item, idx) => (
+          <li key={idx} className="relative">
 
-            <p className="text-xs font-semibold uppercase tracking-wide text-sky-400">
-              {item.period}
-            </p>
-            <h3 className="mt-1 text-base font-semibold text-slate-50">
-              {item.title}
-            </h3>
-            {item.place && (
-              <p className="text-xs text-slate-400">{item.place}</p>
-            )}
-            <p className="mt-2 text-sm text-slate-300 max-w-3xl">
-              {item.description}
-            </p>
-          </article>
+            <div>
+              <h3 className="text-sm font-semibold">
+                {item.title}
+              </h3>
+              <p className="text-xs text-slate-400">
+                {item.org} • {item.period}
+              </p>
+              <p className="mt-2 text-xs text-slate-300">
+                {item.description}
+              </p>
+
+              <div className="mt-2 flex flex-wrap gap-2 text-[11px]">
+                {item.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full bg-slate-800 px-2 py-1 text-slate-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

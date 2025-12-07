@@ -1,42 +1,44 @@
+// components/ContactSection.tsx
 import Link from "next/link";
 
 export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="mx-auto max-w-5xl px-4 py-16 scroll-mt-20"
+      className="scroll-mt-24 rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-900 to-slate-900/40 p-6"
     >
-      <h2 className="text-2xl font-semibold tracking-tight mb-4">
+      <h2 className="text-lg font-semibold tracking-tight mb-2">
         Contact
       </h2>
-      <p className="text-sm md:text-base text-slate-300 mb-4 max-w-2xl">
-        Want to talk about internships, collaborations, or projects?
-        Feel free to reach out.
+      <p className="text-sm text-slate-300 mb-4">
+        Interested in working together, or want to talk about a project or
+        internship opportunity Reach out.
       </p>
 
       <div className="flex flex-wrap items-center gap-3 text-sm">
-        <a
+        <Link
           href="mailto:snipercunni4399@gmail.com"
-          className="inline-flex items-center rounded-md border border-sky-500 bg-sky-500/10 px-4 py-2 font-medium text-sky-300 hover:bg-sky-500/20 transition"
+          className="rounded-md bg-blue-500 px-4 py-2 font-medium text-slate-950 hover:bg-blue-400 transition"
         >
           Email me
-        </a>
+        </Link>
 
         <Link
           href="https://github.com/CunninghamLi"
           target="_blank"
-          className="text-slate-400 hover:text-slate-100 underline underline-offset-4"
+          className="text-slate-300 hover:text-blue-400"
         >
           GitHub
         </Link>
 
-        <Link
-          href="https://www.linkedin.com/in/cunningham-li-7b3672382"
+        {/* Add LinkedIn when ready */}
+        {/* <Link
+          href="https://www.linkedin.com/in/your-profile"
           target="_blank"
-          className="text-slate-400 hover:text-slate-100 underline underline-offset-4"
+          className="text-slate-300 hover:text-blue-400"
         >
           LinkedIn
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

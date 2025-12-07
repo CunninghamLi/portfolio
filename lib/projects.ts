@@ -22,5 +22,6 @@ export const projects: Project[] = [
     description:
       "Next.js demo app with authentication and fake credits.",
     tech: ["Next.js", "TypeScript", "Prisma"],
+    githubUrl: "https://github.com/CunninghamLi/luckyplay",
   },
 ];

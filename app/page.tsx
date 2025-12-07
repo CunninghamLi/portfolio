@@ -1,29 +1,23 @@
+// app/page.tsx 
+import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+
 export default function HomePage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="mx-auto max-w-5xl px-4 py-16">
-        <p className="text-sm font-medium text-sky-400">
-          Full-Stack Developer
-        </p>
-        <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
-          Hello.
-        </h1>
-        <p className="mt-4 max-w-2xl text-sm text-slate-300">
-          Test
-        </p>
-      </section>
+    <div className="min-h-screen bg-slate-950 text-slate-50">
+      <main className="mx-auto max-w-5xl px-4 pt-24 pb-12 space-y-16">
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
 
-      <AboutSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <ContactSection />
-      <Footer/>
-    </>
+      <Footer />
+    </div>
   );
 }
