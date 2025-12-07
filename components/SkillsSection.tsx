@@ -1,49 +1,19 @@
-// components/SkillsSection.tsx
-type SkillGroup = {
-  title: string;
-  skills: string[];
-};
-
-const skillGroups: SkillGroup[] = [
+const skillGroups = [
   {
-    title: "Frontend",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "HTML",
-      "CSS",
-    ],
+    label: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "Java", "C#"],
   },
   {
-    title: "Backend",
-    skills: [
-      "Java",
-      "Spring Boot",
-      "Node.js",
-      "ASP.NET Core",
-      "REST APIs",
-    ],
+    label: "Frontend",
+    items: ["React", "Next.js", "Tailwind CSS"],
   },
   {
-    title: "Databases",
-    skills: [
-      "SQL Server",
-      "PostgreSQL",
-      "SQLite",
-      "Prisma",
-    ],
+    label: "Backend & DB",
+    items: ["Spring Boot", "Node.js", "ASP.NET Core", "SQL Server", "PostgreSQL"],
   },
   {
-    title: "Tools & DevOps",
-    skills: [
-      "Git",
-      "Docker",
-      "Vercel",
-      "Render",
-      "Linux",
-    ],
+    label: "DevOps & Tools",
+    items: ["Git", "Docker", "Vercel", "Render"],
   },
 ];
 
@@ -51,26 +21,28 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="scroll-mt-24 rounded-2xl border border-slate-800 bg-slate-900/60 p-6"
+      className="mx-auto max-w-5xl px-4 py-16 scroll-mt-20"
     >
-      <h2 className="text-lg font-semibold tracking-tight mb-4">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight">
         Skills
       </h2>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {skillGroups.map((group) => (
-          <div key={group.title}>
-            <h3 className="text-sm font-semibold mb-2 text-slate-200">
-              {group.title}
+          <div
+            key={group.label}
+            className="rounded-xl border border-slate-800 bg-slate-900/60 p-4"
+          >
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+              {group.label}
             </h3>
-
-            <div className="flex flex-wrap gap-2">
-              {group.skills.map((skill) => (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
                 <span
-                  key={skill}
-                  className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300"
+                  key={item}
+                  className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-slate-200 transition hover:bg-sky-500/20"
                 >
-                  {skill}
+                  {item}
                 </span>
               ))}
             </div>

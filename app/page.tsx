@@ -9,7 +9,8 @@ import EducationSection from "@/components/EducationSection";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-slate-50">
+
       <main className="mx-auto max-w-5xl px-4 pt-24 pb-12 space-y-16">
         <HeroSection />
         <ProjectsSection />

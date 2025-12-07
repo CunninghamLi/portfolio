@@ -107,3 +107,7 @@ body {
   font-size: 1.05rem;
   color: #e5e7eb;
 }
+
+html {
+  scroll-behavior: smooth;
+}
