@@ -8,47 +8,41 @@ export default async function Navbar() {
   const expected = process.env.ADMIN_TOKEN_SECRET;
   const isAuthed = Boolean(token && expected && token === expected);
 
+  const linkClass = "text-sm font-medium hover:text-blue-600";
+
   return (
     <header className="border-b bg-white/70 backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         <Link href="/" className="text-lg font-semibold tracking-tight">
-          Cunningham<span className="text-blue-600">.dev</span>
+          Cunningham Li<span className="text-blue-600"></span>
         </Link>
 
-        <div className="flex items-center gap-4 text-sm font-medium">
-          <Link href="#about" className="hover:text-blue-600">
-            About Me
-          </Link>
-          <Link href="#experience" className="hover:text-blue-600">
+        <div className="flex items-center gap-4">
+          <Link href="#experience" className={linkClass}>
             Experience
           </Link>
-          <Link href="#projects" className="hover:text-blue-600">
+          <Link href="#projects" className={linkClass}>
             Projects
           </Link>
 
           {isAuthed ? (
             <>
-              <Link
-                href="/admin/dashboard"
-                className="text-xs text-gray-500 hover:text-blue-600"
-              >
+              <Link href="/admin/dashboard" className={linkClass}>
                 Dashboard
               </Link>
+
               <form action="/admin/logout" method="POST">
                 <button
                   type="submit"
-                  className="text-xs text-gray-500 hover:text-blue-600"
+                  className={linkClass}
                 >
                   Logout
                 </button>
               </form>
             </>
           ) : (
-            <Link
-              href="/admin/login"
-              className="text-xs text-gray-500 hover:text-blue-600"
-            >
-              Admin Login
+            <Link href="/admin/login" className={linkClass}>
+              Login
             </Link>
           )}
         </div>

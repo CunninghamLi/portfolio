@@ -9,7 +9,7 @@ export default function HeroSection() {
       </p>
 
       <h1 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
-        Hey, I&apos;m <span className="text-blue-400">Cunningham</span>.
+        Hey, I&apos;m <span className="text-blue-400">Cunningham Li</span>.
       </h1>
 
       <p className="text-sm md:text-base text-slate-300 max-w-xl mb-6">

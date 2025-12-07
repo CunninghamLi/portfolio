@@ -1,58 +1,72 @@
 // components/ProjectCard.tsx
+"use client";
+
+import { useRouter } from "next/navigation";
 import type { Project } from "@/lib/projects";
-import Link from "next/link";
 
 type Props = {
   project: Project;
 };
 
 export default function ProjectCard({ project }: Props) {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    if (project.liveUrl) {
+      router.push(project.liveUrl);
+    }
+  };
+
+  const isClickable = !!project.liveUrl;
+
   return (
-    <article className="group rounded-xl border border-slate-800 bg-slate-900/60 p-4 transition-transform hover:-translate-y-1 hover:border-blue-500/60 hover:bg-slate-900">
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="text-sm font-semibold text-slate-50">
-          {project.title}
-        </h3>
-        {project.liveUrl && (
-          <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
-            Live
-          </span>
-        )}
-      </div>
+    <article
+      onClick={isClickable ? handleCardClick : undefined}
+      className={[
+        "rounded-lg border border-slate-800 bg-slate-900/60 p-4 transition",
+        isClickable
+          ? "cursor-pointer hover:border-blue-500 hover:-translate-y-0.5 hover:bg-slate-900"
+          : "",
+      ].join(" ")}
+    >
+      <h3 className="text-sm font-semibold mb-1">{project.title}</h3>
+      <p className="text-xs text-slate-300 mb-3">{project.description}</p>
 
-      <p className="mt-2 text-xs text-slate-300">
-        {project.description}
-      </p>
-
-      <div className="mt-3 flex flex-wrap gap-1 text-[10px]">
+      <div className="mb-3 flex flex-wrap gap-1">
         {project.tech.map((t) => (
           <span
             key={t}
-            className="rounded-full bg-slate-800 px-2 py-0.5 text-slate-300"
+            className="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-slate-300"
           >
             {t}
           </span>
         ))}
       </div>
 
-      <div className="mt-3 flex gap-3 text-[11px]">
+      <div className="flex gap-2 text-[11px]">
         {project.githubUrl && (
-          <Link
+          <a
             href={project.githubUrl}
             target="_blank"
-            className="text-slate-300 hover:text-blue-400"
+            rel="noreferrer"
+            className="rounded-md border border-slate-700 px-3 py-1 text-slate-200 hover:border-slate-500"
+            // so clicking this doesn’t trigger the card’s click
+            onClick={(e) => e.stopPropagation()}
           >
             View code
-          </Link>
+          </a>
         )}
+
         {project.liveUrl && (
-          <Link
+          <a
             href={project.liveUrl}
             target="_blank"
-            className="text-slate-300 hover:text-blue-400"
+            rel="noreferrer"
+            className="rounded-md bg-blue-600 px-3 py-1 text-slate-950 font-medium hover:bg-blue-500"
+            onClick={(e) => e.stopPropagation()}
           >
-            Live demo
-          </Link>
+            Open app
+          </a>
         )}
       </div>
     </article>

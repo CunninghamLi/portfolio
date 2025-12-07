@@ -12,7 +12,7 @@ export default function ContactSection() {
       </h2>
       <p className="text-sm text-slate-300 mb-4">
         Interested in working together, or want to talk about a project or
-        internship opportunity Reach out.
+        internship opportunity please reach out.
       </p>
 
       <div className="flex flex-wrap items-center gap-3 text-sm">
@@ -31,14 +31,13 @@ export default function ContactSection() {
           GitHub
         </Link>
 
-        {/* Add LinkedIn when ready */}
-        {/* <Link
-          href="https://www.linkedin.com/in/your-profile"
+        <Link
+          href="https://www.linkedin.com/in/cunningham-li-7b3672382/"
           target="_blank"
           className="text-slate-300 hover:text-blue-400"
         >
           LinkedIn
-        </Link> */}
+        </Link>
       </div>
     </section>
   );

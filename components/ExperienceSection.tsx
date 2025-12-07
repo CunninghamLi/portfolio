@@ -11,10 +11,10 @@ const experiences: ExperienceItem[] = [
   {
     title: "Computer Science Technology student",
     org: "Champlain College Saint-Lambert",
-    period: "2023 - 2026 (expected)",
+    period: "2022 - 2026",
     description:
-      "Coursework and projects in full stack development, databases, cloud, and mobile.",
-    tech: ["Java", "Spring Boot", "C#", "ASP.NET Core", "SQL Server"],
+      "DEC",
+    tech: ["Java", "JavaScript", "TypeScript", "SQL", "Spring Boot", "React", "Angular"],
   },
 ];
 

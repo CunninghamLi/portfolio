@@ -1,6 +1,5 @@
 // app/page.tsx 
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
@@ -11,9 +10,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <main className="mx-auto max-w-5xl px-4 pt-24 pb-12 space-y-16">
         <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
         <ProjectsSection />
+        <ExperienceSection />
         <ContactSection />
       </main>
 

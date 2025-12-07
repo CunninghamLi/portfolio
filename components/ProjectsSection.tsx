@@ -3,8 +3,7 @@ import { projects } from "@/lib/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectsSection() {
-  // show all projects for now; you can slice if you want fewer
-  const featured = projects;
+  const featured = projects.slice(0, 3);
 
   return (
     <section
@@ -13,13 +12,8 @@ export default function ProjectsSection() {
     >
       <div className="flex items-baseline justify-between mb-6">
         <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
-        {/* if you add a /projects page later, you can bring this back */}
-        {/* <Link
-          href="/projects"
-          className="text-xs font-medium text-blue-600 hover:underline"
-        >
-          View all
-        </Link> */}
+        {/* if you want a full /projects page later, keep this */}
+        {/* <Link ...>View all</Link> */}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
